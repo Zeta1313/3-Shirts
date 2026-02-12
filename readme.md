@@ -3,7 +3,7 @@
 ## Team Members
 
 - **Allen Resulidze** — GitHub: `allennres`
-- **Team Member 2 Name** — GitHub: `username2`
+- **Team Member 2 Name** — GitHub: `Kabl Totakhil`
 - **Team Member 3 Name** — GitHub: `username3`
 
 ---
