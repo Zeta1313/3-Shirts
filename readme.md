@@ -4,7 +4,7 @@
 
 - **Adrien Bertrand** — GitHub: `Zeta1313`
 - **Allen Resulidze** — GitHub: `allennres`
-- **Team Member 2 Name** — GitHub: `Kabl Totakhil`
+- **Kabul Totakhil** — GitHub: ` Totakhil21`
 - 
 
 ---
