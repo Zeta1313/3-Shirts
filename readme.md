@@ -5,7 +5,6 @@
 - **Adrien Bertrand** — GitHub: `Zeta1313`
 - **Allen Resulidze** — GitHub: `allennres`
 - **Kabul Totakhil** — GitHub: ` Totakhil21`
-- 
 
 ---
 
