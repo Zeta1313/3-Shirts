@@ -4,22 +4,22 @@ const router = Router();
 
 router.get("/", (req, res) => {
     res.render("home", {
-        title: "Landing Page",
+        title: "Home | Landing Page",
     });
 });
 router.get("/login", (req, res) => {
     res.render("login", {
-        title: "Landing Page",
+        title: "Login",
     });
 });
 router.get("/register", (req, res) => {
     res.render("register", {
-        title: "Landing Page",
+        title: "Register | Sign Up",
     });
 });
 router.get("/products", (req, res) => {
     res.render("products", {
-        title: "Landing Page",
+        title: "All Products",
     });
 });
 
