@@ -7,14 +7,60 @@
         <%= title %>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
     <%- include('partials/header') %>
+        <main class="container">
 
-    <%- include('partials/footer') %>
+            <section class="hero">
+                <div class="hero-left">
+                    <p class="label">Independent Apparel Brand</p>
+                    <h2>Shirts built for real life.</h2>
+                    <p class="lead">
+                        We design premium cotton tees with modern fits,
+                        durable construction, and timeless style.
+                    </p>
+
+                    <div class="actions">
+                        <a href="/products" class="btn">Browse Products</a>
+                        <a href="/register" class="btn-muted">Create Account</a>
+                    </div>
+                </div>
+
+                <div class="hero-right">
+                    <h3>What We Focus On</h3>
+                    <ul>
+                        <li>Premium materials</li>
+                        <li>Clean silhouettes</li>
+                        <li>Seasonal limited runs</li>
+                        <li>Consistent pricing</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="spotlight">
+                <img src="/images/tshirt.png" alt="Featured shirt">
+
+                <div class="spotlight-info">
+                    <p class="label">Featured Product</p>
+                    <h3>Classic Crew Tee</h3>
+                    <p class="price">$24.99</p>
+                    <p>
+                        A soft ring-spun cotton shirt with reinforced stitching
+                        and a tailored everyday fit.
+                    </p>
+
+                    <div class="actions">
+                        <a href="/products" class="btn">View All Products</a>
+                        <a href="/register" class="btn-muted">Register</a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        <%- include('partials/footer') %>
 </body>
 
 </html>
