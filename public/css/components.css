@@ -53,3 +53,8 @@ nav a {
   color: #ddd;
   font-size: 14px;
 }
+
+#logo {
+  color: white;
+  text-decoration: none;
+}
