@@ -57,3 +57,15 @@ footer {
   font-size: 13px;
   color: #777;
 }
+
+.about-store {
+  margin: auto;
+  width: 900px;
+  border-top: 1px solid #222;
+}
+
+.about-store h2 ~ p {
+  font-size: 14px;
+  color:#ebebeb;
+}
+
