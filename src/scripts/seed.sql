@@ -1,5 +1,6 @@
+/* ID not needed, the SQL schema handles this for us automatically */
 INSERT INTO `products`
-(`ID`, `Name`, `Description`, `Price`, `Color`, `Pattern`, `Brand`, `Size`, `Image`)
+(`Name`, `Description`, `Price`, `Color`, `Pattern`, `Brand`, `Size`, `Image`)
 VALUES
 (1, 'Classic Shirt', 'Classic white shirt made from high-quality cotton', 20.00, 'White', 'Solid', '3-Shirts', 'S', NULL),
 

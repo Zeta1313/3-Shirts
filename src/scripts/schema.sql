@@ -1,13 +1,14 @@
-DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS `products`;
 
-CREATE TABLE products (
-    `ID` int(1) NOT NULL DEFAULT `0`,
-    'Name' varchar(30) DEFAULT NULL,
-    `Price` float(6) DEFAULT `25.00`,
-    `Color` varchar(15) DEFAULT `White`,
-    `Pattern` varchar(30) DEFAULT `Blank`,
-    `Brand` varchar(30) DEFAULT `3-Shirts`,
-    `Size` varchar(30) DEFAULT `Medium`,
-    `Image` varchar(100) DEFAULT NULL,
+CREATE TABLE `products` (
+    `ID` INT NOT NULL AUTO_INCREMENT,
+    `Name` VARCHAR(100) NOT NULL,
+    `Description` TEXT NOT NULL,
+    `Price` DECIMAL(6,2) NOT NULL,
+    `Color` VARCHAR(30) NOT NULL,
+    `Pattern` VARCHAR(30) NOT NULL,
+    `Brand` VARCHAR(50) NOT NULL DEFAULT '3-Shirts',
+    `Size` VARCHAR(10) NOT NULL,
+    `Image` VARCHAR(255) DEFAULT NULL,
     PRIMARY KEY (`ID`)
 );
