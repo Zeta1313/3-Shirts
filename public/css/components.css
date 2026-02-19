@@ -55,3 +55,22 @@ nav a {
 #logo {
   text-decoration: none;
 }
+
+.product-features {
+  display: flex;
+  justify-content:space-around;
+}
+
+.product-feature {
+  width: 120px;
+  height: 80px;
+  border-radius: 10px;
+  text-align: left;
+  padding: 2px 10px;
+  background-color: #444;
+}
+
+.product-feature .feature-title {
+  font-size: small;
+  color:#999;
+}
