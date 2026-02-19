@@ -9,10 +9,8 @@
   border-bottom: 1px solid #222;
 }
 
-.brand h1 {
-  margin: 0;
-  font-size: 20px;
-  letter-spacing: 1px;
+.brand a {
+  color: white;
 }
 
 .brand span {
@@ -55,6 +53,5 @@ nav a {
 }
 
 #logo {
-  color: white;
   text-decoration: none;
 }
