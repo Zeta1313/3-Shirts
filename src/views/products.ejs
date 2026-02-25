@@ -1,22 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <title>
-        <%= title %>
-    </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <link rel="stylesheet" href="/css/main.css" />
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/main.css">
 </head>
-
 <body>
-    <%- include('partials/header') %>
 
-    <h2>All Products (Coming Soon)</h2>
+<%- include('partials/header') %>
 
-    <%- include('partials/footer') %>
+<main class="container products-page">
+
+  <h2>All Products</h2>
+  <p>Browse our full collection.</p>
+
+  <section class="products-grid">
+    
+
+    
+
+    <% if (!products || products.length === 0) { %>
+
+      <div class="empty-state">
+        <h3>No products available</h3>
+        <p>Products will appear here once connected to the DB.</p>
+      </div>
+
+    <% } else { %>
+
+      <% for (let i = 0; i < products.length; i++) { %>
+
+        <div class="product-card">
+
+          <div class="product-image">
+            <% if (products[i].Image) { %>
+              <img src="<%= products[i].Image %>" alt="<%= products[i].Name %>">
+            <% } else { %>
+              <div class="no-image">No Image</div>
+            <% } %>
+          </div>
+
+          
+          <h3 class="product-title"><%= products[i].Name %></h3>
+
+          <p class="product-price">
+            $<%= Number(products[i].Price).toFixed(2) %>
+          </p>
+
+          <p class="product-desc">
+            <%= products[i].Description %>
+          </p>
+
+         
+          <div class="product-meta">
+            <span class="pill"><%= products[i].Brand %></span>
+            <span class="pill"><%= products[i].Pattern %></span>
+            <span class="pill"><%= products[i].Size %></span>
+            <span class="pill"><%= products[i].Color %></span>
+          </div>
+
+          <div class="product-actions">
+            <a class="view-btn" href="/products/<%= products[i].ID %>">
+              View product
+            </a>
+          </div>
+
+        </div>
+
+      <% } %>
+
+    <% } %>
+
+  </section>
+
+</main>
+
+<%- include('partials/footer') %>
+
 </body>
-
 </html>

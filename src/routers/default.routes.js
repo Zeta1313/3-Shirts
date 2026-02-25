@@ -20,6 +20,7 @@ router.get("/register", (req, res) => {
 router.get("/products", (req, res) => {
     res.render("products", {
         title: "All Products",
+        products: []
     });
 });
 
