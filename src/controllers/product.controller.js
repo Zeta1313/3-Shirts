@@ -1,27 +1,32 @@
 import * as productService from '../services/product.service.js';
 
-export const getAll = async (req, res) => {
+export const renderAllProducts = async (req, res) => {
     try {
-        const records = await productService.getAll();
-        res.json({ message: 'OK', data: records });
+        const products = await productService.getAll();
+        res.render("products", {
+            title: "All Products",
+            products
+        });
     } catch (err) {
-        console.log(err);
-        res.status(500).json({ message: 'Server error', data: null });
+        console.error("Error loading products:", err);
+        res.render("products", {
+            title: "All Products",
+            products: []
+        });
     }
 };
 
-export const getById = async (req, res) => {
+export const renderProductById = async (req, res) => {
     const id = Number(req.params.id);
-
-    if (!Number.isInteger(id)) return res.status(400).json({ message: 'Invalid id', data: null });
+    if (!Number.isInteger(id)) return res.status(400).send("Invalid product ID");
 
     try {
-        const record = await productService.getById(id);
-        if (!record) return res.status(404).json({ message: 'Not found', data: null });
+        const product = await productService.getById(id);
+        if (!product) return res.status(404).send("Product not found");
 
-        res.json({ message: 'OK', data: record });
+        res.render("product-detail", { title: product.Name, product });
     } catch (err) {
-        console.log(err);
-        res.status(500).json({ message: 'Server error', data: null });
+        console.error(err);
+        res.status(500).send("Server error");
     }
 };
