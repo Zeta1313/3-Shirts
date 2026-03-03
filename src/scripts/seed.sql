@@ -2,23 +2,23 @@
 INSERT INTO `products`
 (`Name`, `Description`, `Price`, `Color`, `Pattern`, `Brand`, `Size`, `Image`)
 VALUES
-('Classic Shirt', 'Classic white shirt made from high-quality cotton', 20.00, 'White', 'Solid', '3-Shirts', 'S', NULL),
+('Classic Shirt', 'Classic white shirt made from high-quality cotton', 20.00, 'White', 'Solid', '3-Shirts', 'S', "PlainShirt.png"),
 
-('Classic Shirt', 'Classic white shirt made from high-quality cotton', 20.00, 'White', 'Solid', '3-Shirts', 'M', NULL),
+('Classic Shirt', 'Classic white shirt made from high-quality cotton', 20.00, 'White', 'Solid', '3-Shirts', 'M', "PlainShirt.png"),
 
-('Classic Shirt', 'Classic white shirt made from high-quality cotton', 20.00, 'White', 'Solid', '3-Shirts', 'L', NULL),
+('Classic Shirt', 'Classic white shirt made from high-quality cotton', 20.00, 'White', 'Solid', '3-Shirts', 'L', "PlainShirt.png"),
 
-('Classic Shirt - Colored', 'Classic shirt made from high-quality cotton. Available in 26 different colors', 22.00, 'Red', 'Solid', '3-Shirts', 'S', NULL),
+('Classic Shirt - Colored', 'Classic shirt made from high-quality cotton. Available in 26 different colors', 22.00, 'Red', 'Solid', '3-Shirts', 'S', "ColoredShirt.png"),
 
-('Classic Shirt - Colored', 'Classic shirt made from high-quality cotton. Available in 26 different colors', 22.00, 'Black', 'Solid', '3-Shirts', 'M', NULL),
+('Classic Shirt - Colored', 'Classic shirt made from high-quality cotton. Available in 26 different colors', 22.00, 'Black', 'Solid', '3-Shirts', 'M', "ColoredShirt.png"),
 
-('Classic Shirt - Colored', 'Classic shirt made from high-quality cotton. Available in 26 different colors', 22.00, 'Green', 'Solid', '3-Shirts', 'L', NULL),
+('Classic Shirt - Colored', 'Classic shirt made from high-quality cotton. Available in 26 different colors', 22.00, 'Green', 'Solid', '3-Shirts', 'L', "ColoredShirt.png"),
 
-('Pattern Shirt - Basic', 'Classic shirt made from high-quality cotton. Available in 12 different patterns', 25.00, 'White', 'Solid', '3-Shirts', 'S', NULL),
+('Pattern Shirt - Basic', 'Classic shirt made from high-quality cotton. Available in 12 different patterns', 25.00, 'White', 'Solid', '3-Shirts', 'S', "PatternShirt.png"),
 
-('Pattern Shirt - Basic', 'Classic shirt made from high-quality cotton. Available in 12 different patterns', 25.00, 'Black', 'Striped', '3-Shirts', 'M', NULL),
+('Pattern Shirt - Basic', 'Classic shirt made from high-quality cotton. Available in 12 different patterns', 25.00, 'Black', 'Striped', '3-Shirts', 'M', "PatternShirt.png"),
 
-('Pattern Shirt - Basic', 'Classic shirt made from high-quality cotton. Available in 12 different patterns', 25.00, 'White', 'Solid', '3-Shirts', 'L', NULL),
+('Pattern Shirt - Basic', 'Classic shirt made from high-quality cotton. Available in 12 different patterns', 25.00, 'White', 'Solid', '3-Shirts', 'L', "PatternShirt.png"),
 
 ('Character Shirt', 'Plain shirt with art of a character from select media printed on it', 30.00, 'White', 'Graphic', 'GAP', 'S', NULL),
 
