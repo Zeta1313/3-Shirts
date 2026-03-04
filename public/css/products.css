@@ -114,3 +114,23 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+.product-card img {
+  width: 100%;
+  max-height: 220px;   
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 12px auto;
+}
+
+
+.product-card {
+  padding: 14px;  /* was 20px */
+}
+
+
+.products-header h2 {
+  font-size: 24px; 
+}
+

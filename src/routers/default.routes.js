@@ -16,5 +16,6 @@ router.get("/register", (req, res) => {
 
 // Products page
 router.get("/products", productController.renderAllProducts);
+router.get("/products/:id", productController.renderProductById);
 
 export default router;

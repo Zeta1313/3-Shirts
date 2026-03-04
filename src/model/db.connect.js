@@ -1,7 +1,9 @@
 import mysql from 'mysql2/promise';
 
-// create connection
+// load environment variables
 const { DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME } = process.env;
+
+// create connection pool
 const pool = mysql.createPool({
     host: DB_HOST,
     port: Number(DB_PORT),
@@ -13,17 +15,16 @@ const pool = mysql.createPool({
     queueLimit: 0
 });
 
-//test connection
+// test connection
 export const testConnection = async () => {
     try {
         const connection = await pool.getConnection();
         connection.release();
-        console.log('Database connection OK');
+        console.log("Database connection OK");
     } catch (err) {
-        console.error('Database connection failed');
+        console.error("Database connection failed");
         throw err;
     }
 };
 
-//export pool
 export default pool;

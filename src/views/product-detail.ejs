@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+<%- include('partials/header') %>
+
+<main class="container product-detail-page">
+
+  <a class="back-btn" href="/products">← Back to products</a>
+
+  <div class="product-detail-card">
+
+    <!-- Product Image -->
+    <div class="product-detail-image">
+      <% if (product.Image) { %>
+        <img src="/<%= product.Image %>" alt="<%= product.Name %>">
+      <% } else { %>
+        <div class="no-image">No Image</div>
+      <% } %>
+    </div>
+
+    <!-- Product Info -->
+    <div class="product-detail-info">
+
+      <h1 class="product-title">
+        <%= product.Name %>
+      </h1>
+
+      <p class="product-price">
+        $<%= Number(product.Price).toFixed(2) %>
+      </p>
+
+      <p class="product-desc">
+        <%= product.Description %>
+      </p>
+
+      <div class="product-meta">
+        <span class="pill"><%= product.Brand %></span>
+        <span class="pill"><%= product.Pattern %></span>
+        <span class="pill"><%= product.Size %></span>
+        <span class="pill"><%= product.Color %></span>
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+<%- include('partials/footer') %>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+/* product details page */
+
+.product-detail-page {
+  padding-top: 40px;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.back-btn:hover {
+  color: white;
+}
+
+.product-detail-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  padding: 25px;
+}
+
+.product-detail-image img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+}
+
+.no-image {
+  padding: 30px;
+  background: #222;
+  border-radius: 8px;
+  color: #aaa;
+}
+
+.product-detail-info h1 {
+  margin-top: 0;
+}
+
+.product-price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #4caf50;
+  margin: 10px 0;
+}
+
+.product-desc {
+  color: #bbb;
+  margin-bottom: 20px;
+}
+
+.product-meta .pill {
+  display: inline-block;
+  background: #2c2c2c;
+  padding: 6px 10px;
+  border-radius: 20px;
+  margin-right: 5px;
+  margin-bottom: 6px;
+  font-size: 12px;
+  color: #ddd;
+}
+
+@media (max-width: 900px) {
+  .product-detail-card {
+    grid-template-columns: 1fr;
+  }
+}
