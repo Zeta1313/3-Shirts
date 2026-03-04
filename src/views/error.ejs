@@ -6,7 +6,39 @@
   <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-    <h1>Error, item not found</h1>
-    <a href="/">Return to main page</a>
+
+<%- include('partials/header') %>
+
+<main class="container product-detail-page">
+
+  <a class="back-btn" href="/products">← Back to products</a>
+
+  <div class="product-detail-card">
+
+    <!-- Product Image -->
+    <div class="product-detail-image">
+
+        <img src="/images/PlainShirt.png">
+    </div>
+
+    <!-- Product Info -->
+    <div class="product-detail-info">
+
+      <h1 class="product-title">
+        Error: Item not found.
+      </h1>
+
+      <p class="product-desc">
+        The requested product does not exist. Please return to the products page.
+      </p>
+
+    </div>
+
+  </div>
+
+</main>
+
+<%- include('partials/footer') %>
+
 </body>
 </html>

@@ -22,7 +22,7 @@ export const renderProductById = async (req, res) => {
 
     try {
         const product = await productService.getById(id);
-        if (!product) return res.status(404).send("Product not found");
+        if (!product) return res.render("error", {title: "404 Not Found"});
 
         res.render("product-detail", { title: product.Name, product });
     } catch (err) {
