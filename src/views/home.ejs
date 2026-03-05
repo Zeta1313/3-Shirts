@@ -45,25 +45,24 @@
 
                 <div class="spotlight-info">
                     <p class="label">Featured Product</p>
-                    <h3>Classic Crew Tee</h3>
-                    <p class="price">$24.99</p>
+                    <h3><%= product.Name %></h3>
+                    <p class="price">$<%= Number(product.Price).toFixed(2) %></p>
                     <p>
-                        A soft ring-spun cotton shirt with reinforced stitching
-                        and a tailored everyday fit.
+                        <%= product.Description %>
                     </p>
 
                     <div class="product-features">
                         <div class="product-feature">
                             <p class="feature-title">Brand</p>
-                            <p class="feature">GAP</p>
+                            <p class="feature"> <%= product.Brand %></p>
                         </div>
                         <div class="product-feature">
                             <p class="feature-title">Pattern</p>
-                            <p class="feature">Varied</p>
+                            <p class="feature"><%= product.Pattern %></p>
                         </div>
                         <div class="product-feature">
                             <p class="feature-title">Availability</p>
-                            <p class="feature">In stock</p>
+                            <p class="feature"><%= Stock %></p>
                         </div>
                     </div>
 

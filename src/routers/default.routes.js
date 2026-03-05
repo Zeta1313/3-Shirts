@@ -4,9 +4,7 @@ import * as productController from '../controllers/product.controller.js';
 const router = Router();
 
 // Home and auth pages
-router.get("/", (req, res) => {
-    res.render("home", { title: "Home | Landing Page" });
-});
+router.get("/", productController.productOftheDay);
 router.get("/login", (req, res) => {
     res.render("login", { title: "Login" });
 });

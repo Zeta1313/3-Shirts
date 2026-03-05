@@ -9,6 +9,7 @@ CREATE TABLE `products` (
     `Pattern` VARCHAR(30) NOT NULL,
     `Brand` VARCHAR(50) NOT NULL DEFAULT '3-Shirts',
     `Size` VARCHAR(10) NOT NULL,
+    `Stock` BOOLEAN NOT NULL DEFAULT FALSE,
     `Image` VARCHAR(255) DEFAULT NULL,
     PRIMARY KEY (`ID`)
 );
