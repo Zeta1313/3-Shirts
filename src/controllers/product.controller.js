@@ -52,3 +52,15 @@ export const restApi = async (req, res) => {
         res.status(500).json({ error: "Database query failed" });
     }
 }
+
+export const registerPage = (req, res) => {
+    res.render("register", { title: "Register | Sign Up" });
+}
+
+export const loginPage = (req, res) => {
+    res.render("login", { title: "Login" });
+}
+
+export const homePage = (req, res) => {
+    res.render("home", { title: "Home | Landing Page" });
+}
