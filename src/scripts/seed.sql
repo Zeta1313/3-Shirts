@@ -20,11 +20,11 @@ VALUES
 
 ('Pattern Shirt - Basic', 'Classic shirt made from high-quality cotton. Available in 12 different patterns', 25.00, 'White', 'Solid', '3-Shirts', 'L', 'images/PatternShirt.png'),
 
-('Character Shirt', 'Plain shirt with art of a character from select media printed on it', 30.00, 'White', 'Graphic', 'GAP', 'S', NULL),
+('Character Shirt', 'Plain shirt with art of a character from select media printed on it', 30.00, 'White', 'Graphic', 'GAP', 'S', 'CharacterShirt.ping'),
 
-('Character Shirt', 'Plain shirt with art of a character from select media printed on it', 30.00, 'White', 'Graphic', 'GAP', 'M', NULL),
+('Character Shirt', 'Plain shirt with art of a character from select media printed on it', 30.00, 'White', 'Graphic', 'GAP', 'M', 'CharacterShirt.ping'),
 
-('Character Shirt', 'Plain shirt with art of a character from select media printed on it', 30.00, 'White', 'Graphic', 'GAP', 'L', NULL),
+('Character Shirt', 'Plain shirt with art of a character from select media printed on it', 30.00, 'White', 'Graphic', 'GAP', 'L', 'CharacterShirt.ping'),
 
 ('Pattern Shirt - Complex', 'Shirt with complex pattern, sourced from a third party source', 29.00, 'White', 'Striped', 'Nordstrom', 'S', NULL),
 
@@ -38,6 +38,6 @@ VALUES
 
 ('Luxury Shirt', 'Finely crafted shirt made from the highest quality materials. Sourced directly from renowned brand.', 65.00, 'White', 'Logo', 'Louis Vuitton', 'L', NULL),
 
-('Large Pattern Shirt', 'Shirt with large pattern that stretches across the entire front and to the back', 33.00, 'Blue', 'Pattern', 'Vogue', 'M', NULL),
+('Large Pattern Shirt', 'Shirt with large pattern that stretches across the entire front and to the back', 33.00, 'Blue', 'Pattern', 'Vogue', 'M', 'WrapAroundShirt.png'),
 
-('Large Pattern Shirt', 'Shirt with large pattern that stretches across the entire front and to the back', 33.00, 'Red', 'Pattern', 'Vogue', 'L', NULL)
+('Large Pattern Shirt', 'Shirt with large pattern that stretches across the entire front and to the back', 33.00, 'Red', 'Pattern', 'Vogue', 'L', 'WrapAroundShirt.png')
