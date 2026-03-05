@@ -11,6 +11,6 @@ router.get("/register", productController.registerPage);
 // Products page
 router.get("/products", productController.renderAllProducts);
 router.get("/products/:id", productController.renderProductById);
-router.get('/api/products', productController.restApi);
+router.get("/api/products", productController.restApi);
 
 export default router;

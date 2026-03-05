@@ -32,3 +32,14 @@ The store will specialize in:
 - Seasonal & Limited Edition Designs  
 
 This store focuses exclusively on shirts to create a clean, focused, and brand-driven shopping experience.
+
+---
+
+## SSR Routes
+"/": Home Page, displays a randomized shirt of the day for each user.
+"/login": Login Page, currently vestigial.
+"/register": Registration page, currently vestigial.
+"/products": Products page, displays all products with filtering availible and links to each product page.
+"/products/api": Developer acess, displays all products in plain text.
+Queries for "/products" and "/products/api": Size, color, brand, price
+"/products/:id": Individual product page, displaying information and stock.
