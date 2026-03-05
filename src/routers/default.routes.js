@@ -4,7 +4,7 @@ import * as productController from '../controllers/product.controller.js';
 const router = Router();
 
 // Home and auth pages
-router.get("/", productController.homePage);
+router.get("/", productController.HomePage);
 router.get("/login", productController.loginPage);
 router.get("/register", productController.registerPage);
 

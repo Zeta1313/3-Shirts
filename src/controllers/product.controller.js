@@ -36,7 +36,11 @@ export const renderProductById = async (req, res) => {
         const product = await productService.getById(id);
         if (!product) return res.render("error");
 
-        res.render("product-detail", { title: product.Name, product });
+    let inStock = "Out of Stock";
+    if (product.Stock) {
+        inStock = "In Stock";
+    }
+        res.render("product-detail", { title: product.Name, product, Stock: inStock });
     } catch (err) {
         console.error(err);
         res.status(500).send("Server error");
@@ -60,6 +64,21 @@ export const loginPage = (req, res) => {
     res.render("login", { title: "Login" });
 }
 
-export const homePage = (req, res) => {
-    res.render("home", { title: "Home | Landing Page" });
-}
+
+export const HomePage = async (req, res) => {
+    if (!req.session.featuredProductId) {
+        const products = await productService.getAll();
+        req.session.featuredProductId = Math.floor(Math.random() * products.length) + 1;
+    }
+    const product = await productService.getById(req.session.featuredProductId);
+    let inStock = "Out of Stock";
+    if (product.Stock) {
+        inStock = "In Stock";
+    }
+
+    res.render("home", {
+        product: product,
+        Stock: inStock,
+        title: "Home | Landing Page"
+    });
+};
