@@ -1,5 +1,4 @@
 import * as productService from '../services/product.service.js';
-import * as productRepo from '../model/product.repo.mysql.js';
 
 export const renderAllProducts = async (req, res) => {
     try {
@@ -46,7 +45,7 @@ export const renderProductById = async (req, res) => {
 
 export const restApi = async (req, res) => {
     try {
-        const products = await productRepo.getAll(req.query);
+        const products = await productService.filterProducts(req.query);
         res.json(products);
     } catch (err) {
         res.status(500).json({ error: "Database query failed" });
