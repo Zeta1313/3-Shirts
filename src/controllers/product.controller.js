@@ -65,12 +65,8 @@ export const loginPage = (req, res) => {
     res.render("login", { title: "Login" });
 }
 
-export const homePage = (req, res) => {
-    res.render("home", { title: "Home | Landing Page" });
-}
 
-
-export const productOftheDay = async (req, res) => {
+export const HomePage = async (req, res) => {
     if (!req.session.featuredProductId) {
         const products = await productService.getAll();
         req.session.featuredProductId = Math.floor(Math.random() * products.length) + 1;
