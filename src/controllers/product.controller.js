@@ -1,10 +1,9 @@
 import * as productService from '../services/product.service.js';
-import * as productRepo from '../model/product.repo.mysql.js';
 
 export const renderAllProducts = async (req, res) => {
     try {
         const products = await productService.getAll();
-        
+
         // Extract unique values for filters 
         const sizes = [...new Set(products.map(p => p.Size))].sort();
         const colors = [...new Set(products.map(p => p.Color))].sort();
@@ -31,16 +30,16 @@ export const renderAllProducts = async (req, res) => {
 
 export const renderProductById = async (req, res) => {
     const id = Number(req.params.id);
-    if (!Number.isInteger(id)) return res.render("error");
+    if (!Number.isInteger(id)) return res.status(400).send("Invalid product ID");
 
     try {
         const product = await productService.getById(id);
-        if (!product) return res.render("error");
+        if (!product) return res.render("error", { title: "404 Not Found" });
 
-    let inStock = "Out of Stock";
-    if (product.Stock) {
-        inStock = "In Stock";
-    }
+        let inStock = "Out of Stock";
+        if (product.Stock) {
+            inStock = "In Stock";
+        }
         res.render("product-detail", { title: product.Name, product, Stock: inStock });
     } catch (err) {
         console.error(err);
@@ -50,7 +49,7 @@ export const renderProductById = async (req, res) => {
 
 export const restApi = async (req, res) => {
     try {
-        const products = await productRepo.getAll(req.query);
+        const products = await productService.filterProducts(req.query);
         res.json(products);
     } catch (err) {
         res.status(500).json({ error: "Database query failed" });
