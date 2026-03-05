@@ -31,11 +31,11 @@ export const renderAllProducts = async (req, res) => {
 
 export const renderProductById = async (req, res) => {
     const id = Number(req.params.id);
-    if (!Number.isInteger(id)) return res.status(400).send("Invalid product ID");
+    if (!Number.isInteger(id)) return res.render("error");
 
     try {
         const product = await productService.getById(id);
-        if (!product) return res.render("error", {title: "404 Not Found"});
+        if (!product) return res.render("error");
 
         res.render("product-detail", { title: product.Name, product });
     } catch (err) {
