@@ -3,15 +3,27 @@ import * as productService from '../services/product.service.js';
 export const renderAllProducts = async (req, res) => {
     try {
         const products = await productService.getAll();
+        
+        // Extract unique values for filters 
+        const sizes = [...new Set(products.map(p => p.Size))].sort();
+        const colors = [...new Set(products.map(p => p.Color))].sort();
+        const brands = [...new Set(products.map(p => p.Brand))].sort();
+
         res.render("products", {
             title: "All Products",
-            products
+            products,
+            sizes,   // Pass these to the EJS template
+            colors,
+            brands
         });
     } catch (err) {
         console.error("Error loading products:", err);
         res.render("products", {
             title: "All Products",
-            products: []
+            products: [],
+            sizes: [],
+            colors: [],
+            brands: []
         });
     }
 };

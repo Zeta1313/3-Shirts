@@ -21,38 +21,48 @@
         <div class="filter-group">
           <label for="sizeSelect">Size</label>
           <select id="sizeSelect">
-            <option value="All">S</option>
-            <option value="Shirts">M</option>
-            <option value="Pants">L</option>
+            <option value="All">All Sizes</option>
+            <% sizes.forEach(size=> { %>
+              <option value="<%= size %>">
+                <%= size %>
+              </option>
+              <% }) %>
           </select>
         </div>
+
         <div class="filter-group">
           <label for="colorSelect">Color</label>
           <select id="colorSelect">
-            <option value="All">S</option>
-            <option value="Shirts">M</option>
-            <option value="Pants">L</option>
+            <option value="All">All Colors</option>
+            <% colors.forEach(color=> { %>
+              <option value="<%= color %>">
+                <%= color %>
+              </option>
+              <% }) %>
           </select>
         </div>
+
         <div class="filter-group">
           <label for="brandSelect">Brand</label>
           <select id="brandSelect">
-            <option value="All">S</option>
-            <option value="Shirts">M</option>
-            <option value="Pants">L</option>
+            <option value="All">All Brands</option>
+            <% brands.forEach(brand=> { %>
+              <option value="<%= brand %>">
+                <%= brand %>
+              </option>
+              <% }) %>
           </select>
         </div>
 
         <div class="filter-group">
           <label for="sortSelect">Sort</label>
           <select id="sortSelect">
-            <option value="featured">Featured</option>
             <option value="price_asc">Price: Low to High</option>
             <option value="price_desc">Price: High to Low</option>
           </select>
         </div>
 
-          <button id="clearFilters">Clear</button>
+        <button id="clearFilters">Clear</button>
 
         <div class="results-meta">
           <span id="productCount">Showing <strong>
