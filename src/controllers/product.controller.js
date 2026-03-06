@@ -72,6 +72,7 @@ export const HomePage = async (req, res) => {
     }
     const product = await productService.getById(req.session.featuredProductId);
     let inStock = "Out of Stock";
+    
     if (product.Stock) {
         inStock = "In Stock";
     }
