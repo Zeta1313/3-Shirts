@@ -20,23 +20,23 @@ VALUES
 
 ('Pattern Shirt - Basic', 'Classic shirt made from high-quality cotton. Available in 12 different patterns', 25.00, 'White', 'Solid', '3-Shirts', 'L', TRUE, 'images/PatternShirt.png'),
 
-('Character Shirt', 'Plain shirt with art of a character from select media printed on it', 30.00, 'White', 'Graphic', 'GAP', 'S', TRUE, 'images/CharacterShirt.ping'),
+('Character Shirt', 'Plain shirt with art of a character from select media printed on it', 30.00, 'White', 'Graphic', 'GAP', 'S', TRUE, 'images/CharacterShirt.png'),
 
-('Character Shirt', 'Plain shirt with art of a character from select media printed on it', 30.00, 'White', 'Graphic', 'GAP', 'M', TRUE, 'images/CharacterShirt.ping'),
+('Character Shirt', 'Plain shirt with art of a character from select media printed on it', 30.00, 'White', 'Graphic', 'GAP', 'M', TRUE, 'images/CharacterShirt.png'),
 
-('Character Shirt', 'Plain shirt with art of a character from select media printed on it', 30.00, 'White', 'Graphic', 'GAP', 'L', TRUE, 'images/CharacterShirt.ping'),
+('Character Shirt', 'Plain shirt with art of a character from select media printed on it', 30.00, 'White', 'Graphic', 'GAP', 'L', TRUE, 'images/CharacterShirt.png'),
 
-('Pattern Shirt - Complex', 'Shirt with complex pattern, sourced from a third party source', 29.00, 'White', 'Striped', 'Nordstrom', 'S', FALSE, NULL),
+('Pattern Shirt - Complex', 'Shirt with complex pattern, sourced from a third party source', 29.00, 'White', 'Complex', 'Nordstrom', 'S', FALSE, 'ComplexShirt.png'),
 
-('Pattern Shirt - Complex', 'Shirt with complex pattern, sourced from a third party source', 29.00, 'Black', 'Complex', 'Nordstrom', 'M', TRUE, NULL),
+('Pattern Shirt - Complex', 'Shirt with complex pattern, sourced from a third party source', 29.00, 'Black', 'Complex', 'Nordstrom', 'M', TRUE, 'ComplexShirt.png'),
 
-('Pattern Shirt - Complex', 'Shirt with complex pattern, sourced from a third party source', 29.00, 'Red', 'Complex', 'Nordstrom', 'L', TRUE, NULL),
+('Pattern Shirt - Complex', 'Shirt with complex pattern, sourced from a third party source', 29.00, 'Red', 'Complex', 'Nordstrom', 'L', TRUE, 'ComplexShirt.png'),
 
-('Luxury Shirt', 'Finely crafted shirt made from the highest quality materials. Sourced directly from renowned brand.', 65.00, 'Blue', 'Logo', 'Louis Vuitton', 'S', TRUE, NULL),
+('Luxury Shirt', 'Finely crafted shirt made from the highest quality materials. Sourced directly from renowned brand.', 65.00, 'Blue', 'Logo', 'Louis Vuitton', 'S', TRUE, 'LuxuryShirt.png'),
 
-('Luxury Shirt', 'Finely crafted shirt made from the highest quality materials. Sourced directly from renowned brand.', 65.00, 'Black', 'Logo', 'Louis Vuitton', 'M', FALSE, NULL),
+('Luxury Shirt', 'Finely crafted shirt made from the highest quality materials. Sourced directly from renowned brand.', 65.00, 'Black', 'Logo', 'Louis Vuitton', 'M', FALSE, 'LuxuryShirt.png'),
 
-('Luxury Shirt', 'Finely crafted shirt made from the highest quality materials. Sourced directly from renowned brand.', 65.00, 'White', 'Logo', 'Louis Vuitton', 'L', FALSE, NULL),
+('Luxury Shirt', 'Finely crafted shirt made from the highest quality materials. Sourced directly from renowned brand.', 65.00, 'White', 'Logo', 'Louis Vuitton', 'L', FALSE, 'LuxuryShirt.png'),
 
 ('Large Pattern Shirt', 'Shirt with large pattern that stretches across the entire front and to the back', 33.00, 'Blue', 'Pattern', 'Vogue', 'M', TRUE, 'images/WrapAroundShirt.png'),
 
