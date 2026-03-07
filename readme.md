@@ -10,7 +10,7 @@
 
 ## 🛍️ Project Description
 
-**3-Shirts** is a full-stack ecommerce web application focused on selling high-quality, stylish shirts for everyday wear. Our platform allows customers to browse products, view detailed descriptions, add items to their cart, and securely complete purchases.
+**3-Shirts** is a full-stack ecommerce web application focused on selling high-quality, stylish shirts for everyday wear. Our platform allows customers to browse products, view detailed descriptions, add items to their cart, and securely complete purchases. In addition, we select a featured product for every new session to display to users visiting the home page.
 
 The goal of this project is to demonstrate modern web development practices including structured architecture, clean UI design, and secure backend integration. In addition, it will be using:
 
@@ -19,6 +19,7 @@ The goal of this project is to demonstrate modern web development practices incl
 - MVC architecture
 - REST-style API endpoints
 - Secure session-based state management
+- Session manegement
 
 ---
 
