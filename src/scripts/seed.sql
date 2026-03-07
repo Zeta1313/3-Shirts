@@ -26,17 +26,17 @@ VALUES
 
 ('Character Shirt', 'Plain shirt with art of a character from select media printed on it.', 30.00, 'White', 'Graphic', 'GAP', 'L', TRUE, 'images/CharacterShirt.png'),
 
-('Pattern Shirt - Complex', 'Shirt with complex pattern, sourced from a third party source.', 29.00, 'White', 'Striped', 'Nordstrom', 'S', FALSE, NULL),
+('Pattern Shirt - Complex', 'Shirt with complex pattern, sourced from a third party source.', 29.00, 'White', 'Striped', 'Nordstrom', 'S', FALSE, 'images/ComplexShirt.png'),
 
-('Pattern Shirt - Complex', 'Shirt with complex pattern, sourced from a third party source.', 29.00, 'Black', 'Complex', 'Nordstrom', 'M', TRUE, NULL),
+('Pattern Shirt - Complex', 'Shirt with complex pattern, sourced from a third party source.', 29.00, 'Black', 'Complex', 'Nordstrom', 'M', TRUE, 'images/ComplexShirt.png'),
 
-('Pattern Shirt - Complex', 'Shirt with complex pattern, sourced from a third party source.', 29.00, 'Red', 'Complex', 'Nordstrom', 'L', TRUE, NULL),
+('Pattern Shirt - Complex', 'Shirt with complex pattern, sourced from a third party source.', 29.00, 'Red', 'Complex', 'Nordstrom', 'L', TRUE, 'images/ComplexShirt.png'),
 
-('Luxury Shirt', 'Finely crafted shirt made from the highest quality materials. Sourced directly from renowned brand.', 65.00, 'Blue', 'Logo', 'Louis Vuitton', 'S', TRUE, 'LuxuryShirt.png'),
+('Luxury Shirt', 'Finely crafted shirt made from the highest quality materials. Sourced directly from renowned brand.', 65.00, 'Blue', 'Logo', 'Louis Vuitton', 'S', TRUE, 'images/LuxuryShirt.png'),
 
-('Luxury Shirt', 'Finely crafted shirt made from the highest quality materials. Sourced directly from renowned brand.', 65.00, 'Black', 'Logo', 'Louis Vuitton', 'M', FALSE, 'LuxuryShirt.png'),
+('Luxury Shirt', 'Finely crafted shirt made from the highest quality materials. Sourced directly from renowned brand.', 65.00, 'Black', 'Logo', 'Louis Vuitton', 'M', FALSE, 'images/LuxuryShirt.png'),
 
-('Luxury Shirt', 'Finely crafted shirt made from the highest quality materials. Sourced directly from renowned brand.', 65.00, 'White', 'Logo', 'Louis Vuitton', 'L', FALSE, 'LuxuryShirt.png'),
+('Luxury Shirt', 'Finely crafted shirt made from the highest quality materials. Sourced directly from renowned brand.', 65.00, 'White', 'Logo', 'Louis Vuitton', 'L', FALSE, 'images/LuxuryShirt.png'),
 
 ('Large Pattern Shirt', 'Shirt with large pattern that stretches across the entire front and to the back.', 33.00, 'Blue', 'Pattern', 'Vogue', 'M', TRUE, 'images/WrapAroundShirt.png'),
 
