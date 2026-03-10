@@ -12,7 +12,7 @@ app.set("views", "src/views");
 //static directories
 
 app.use(session({
-    secret: "ADBDKSDKFDHSHFKSDHFKJ!@#$$",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true
 }));
