@@ -83,3 +83,15 @@ export const HomePage = async (req, res) => {
         title: "Home | Landing Page"
     });
 };
+
+export const AddToCart = async (req, res) => {
+    const item = req.params.id;
+    if (!req.session.cart) {
+        const cart = [];
+        cart[0] = item;
+        req.session.cart = cart;
+    }
+    else {
+        req.session.cart[req.session.cart.length+1] = item;
+    }
+};
