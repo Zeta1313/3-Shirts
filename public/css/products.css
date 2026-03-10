@@ -213,3 +213,7 @@
 #productCount strong {
   color: #fff;
 }
+
+.add-to-cart-btn {
+  margin-left: 1rem;
+}
