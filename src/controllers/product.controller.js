@@ -70,15 +70,6 @@ export const restApi = async (req, res) => {
     }
 }
 
-export const registerPage = (req, res) => {
-    res.render("register", { title: "Register | Sign Up" });
-}
-
-export const loginPage = (req, res) => {
-    res.render("login", { title: "Login" });
-}
-
-
 export const HomePage = async (req, res) => {
     if (!req.session.featuredProductId) {
         const products = await productService.getAll();

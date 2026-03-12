@@ -38,6 +38,7 @@ const updateProducts = async () => {
                 </div>
                 <div class="product-actions">
                     <a class="view-btn" href="/products/${product.ID}">View product</a>
+                    <a class="add-to-cart-btn" href="/api/cart/items">Add to cart</a>
                 </div>
             </div>`;
         grid.insertAdjacentHTML('beforeend', card);

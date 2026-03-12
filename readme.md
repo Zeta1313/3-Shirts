@@ -19,7 +19,7 @@ The goal of this project is to demonstrate modern web development practices incl
 - MVC architecture
 - REST-style API endpoints
 - Secure session-based state management
-- Session manegement
+- Session management
 
 ---
 

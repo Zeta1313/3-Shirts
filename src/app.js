@@ -12,10 +12,20 @@ app.set("views", "src/views");
 //static directories
 
 app.use(session({
-    secret: "ADBDKSDKFDHSHFKSDHFKJ!@#$$",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true
 }));
+
+
+app.use((req, res, next) => {
+    if (req.session.user) {
+        req.user = req.session.user;
+    } else {
+        req.user = null;
+    }
+    next();
+})
 
 app.use(express.static('public'));
 

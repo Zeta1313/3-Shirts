@@ -2,21 +2,65 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>
         <%= title %>
     </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/register.css">
+
 </head>
 
 <body>
+
     <%- include('partials/header') %>
 
-    <h2>Register Page (Coming Soon)</h2>   
+        <main class="register-page">
 
-    <%- include('partials/footer') %>
+            <div class="register-card">
+
+                <h1>Create your account</h1>
+
+                <% if (errors) { %>
+                    <p class="error"><%= errors %></p>
+                <% } %>
+
+                <p class="subtitle">
+                    Register to browse the full catalog and view product details.
+                </p>
+
+                <form action="/register" method="POST">
+
+                    <label for="username">Username</label>
+                    <input id="username" type="text" name="username" required>
+
+                    <label for="password">Password</label>
+                    <input id="password" type="password" name="password" required>
+
+                    <div class="form-group">
+                        <label for="confirm">Confirm Password</label>
+                        <input id="confirm" type="password" name="confirm" required>
+                    </div>
+
+                    <p class="hint">Minimum 8 characters</p>
+
+                    <button type="submit">Register</button>
+
+                </form>
+
+                <p class="switch">
+                    Already have an account?
+                    <a href="/login">Login</a>
+                </p>
+
+            </div>
+
+        </main>
+
+        <%- include('partials/footer') %>
+
 </body>
 
 </html>
