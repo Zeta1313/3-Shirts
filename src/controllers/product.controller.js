@@ -29,6 +29,20 @@ export const renderAllProducts = async (req, res) => {
 };
 
 export const renderProductById = async (req, res) => {
+    if (!req.session.memory) {
+        const memory = [];
+        memory[0] = req.params.id;
+        req.session.memory = memory;
+    }
+    else {
+        let check = 0;
+        for (let i = 0; i < req.session.memory.length; i++) {
+            if (req.session.memory[i] == req.params.id) check = 1;
+        }
+        if (check == 0) {
+            req.session.memory[req.session.memory.length+1] = req.params.id;
+        }
+    }
     const id = Number(req.params.id);
     if (!Number.isInteger(id)) return res.status(400).send("Invalid product ID");
 
