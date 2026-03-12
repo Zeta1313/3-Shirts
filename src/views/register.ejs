@@ -2,52 +2,65 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<title><%= title %></title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>
+        <%= title %>
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="/css/main.css">
-<link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/register.css">
 
 </head>
 
 <body>
 
-<%- include('partials/header') %>
+    <%- include('partials/header') %>
 
-<main class="register-page">
+        <main class="register-page">
 
-<div class="register-card">
+            <div class="register-card">
 
-<h1>Create your account</h1>
-<p class="subtitle">
-Register to browse the full catalog and view product details.
-</p>
+                <h1>Create your account</h1>
 
-<form action="/register" method="POST">
+                <% if (errors) { %>
+                    <p class="error"><%= errors %></p>
+                <% } %>
 
-<label>Email</label>
-<input type="email" name="email" required>
+                <p class="subtitle">
+                    Register to browse the full catalog and view product details.
+                </p>
 
-<label>Password</label>
-<input type="password" name="password" required>
+                <form action="/register" method="POST">
 
-<p class="hint">Minimum 8 characters</p>
+                    <label for="username">Username</label>
+                    <input id="username" type="text" name="username" required>
 
-<button type="submit">Register</button>
+                    <label for="password">Password</label>
+                    <input id="password" type="password" name="password" required>
 
-</form>
+                    <div class="form-group">
+                        <label for="confirm">Confirm Password</label>
+                        <input id="confirm" type="password" name="confirm" required>
+                    </div>
 
-<p class="switch">
-Already have an account?
-<a href="/login">Login</a>
-</p>
+                    <p class="hint">Minimum 8 characters</p>
 
-</div>
+                    <button type="submit">Register</button>
 
-</main>
+                </form>
 
-<%- include('partials/footer') %>
+                <p class="switch">
+                    Already have an account?
+                    <a href="/login">Login</a>
+                </p>
+
+            </div>
+
+        </main>
+
+        <%- include('partials/footer') %>
 
 </body>
+
 </html>

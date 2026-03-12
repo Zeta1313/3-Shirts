@@ -16,21 +16,17 @@ const registerPage = (req, res) => {
 };
 
 const register = async (req, res) => {
-    const { username, password, confirm, role } = req.body;
+    const { username, password, confirm } = req.body;
 
     if (!username || !password || !confirm) {
-        return res.redirect("/register?errors=All fields required");
+        return res.redirect("/register?errors=All fields required.");
     }
 
     if (password !== confirm) {
-        return res.redirect("/register?errors=Passwords do not match");
+        return res.redirect("/register?errors=Passwords do not match.");
     }
 
-    if (role !== "user" && role !== "admin") {
-        return res.redirect("/register?errors=Invalid role");
-    }
-
-    await createUser(username, password, role);
+    await createUser(username, password);
     return res.redirect("/login");
 };
 
@@ -38,41 +34,34 @@ const login = async (req, res) => {
     const { username, password } = req.body;
 
     if (!username || !password) {
-        return res.redirect("/login?errors=All fields required");
+        return res.redirect("/login?errors=All fields required.");
     }
 
     const user = await findUserByUsername(username);
     if (!user) {
-        return res.redirect("/login?errors=Invalid credentials");
+        return res.redirect("/login?errors=Invalid credentials.");
     }
 
     const isValid = await validatePassword(password, user.password);
     if (!isValid) {
-        return res.redirect("/login?errors=Invalid credentials");
+        return res.redirect("/login?errors=Invalid credentials.");
     }
 
     req.session.user = {
         userId: user.userId,
         username: user.username,
-        role: user.role
     };
 
-    return res.redirect("/dashboard");
+    return res.redirect("/products");
 };
 
 export const isLoggedIn = (req, res, next) => {
     if (!req.user) {
-        return res.redirect("/login?errors=Please log in first");
+        return res.redirect("/login?errors=Please log in first.");
     }
     next();
 }
 
-export const hasRole = (role) => (req, res, next) => {
-        if (!req.user || req.user.role !== role) {
-            return res.redirect("/login?errors=Access denied");
-        }
-        next();
-};
 
 export const logout = (req, res) => {
     req.session.destroy(() => {

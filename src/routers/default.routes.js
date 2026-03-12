@@ -1,16 +1,25 @@
 import { Router } from "express";
 import * as productController from '../controllers/product.controller.js';
+import authController, { isLoggedIn, logout } from "../controllers/auth.controller.js";
 
 const router = Router();
 
 // Home and auth pages
 router.get("/", productController.HomePage);
-router.get("/login", productController.loginPage);
-router.get("/register", productController.registerPage);
+
+router.get("/login", authController.loginPage);
+router.post("/login", authController.login);
+
+
+
+router.get("/register", authController.registerPage);
+router.post("/register", authController.register);
 
 // Products page
-router.get("/products", productController.renderAllProducts);
-router.get("/products/:id", productController.renderProductById);
+router.get("/products", isLoggedIn, productController.renderAllProducts);
+router.get("/products/:id", isLoggedIn, productController.renderProductById);
 router.get("/api/products", productController.restApi);
+
+router.get("/logout", logout)
 
 export default router;

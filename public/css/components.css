@@ -74,3 +74,8 @@ nav a {
   font-size: small;
   color:#999;
 }
+
+.error {
+  color: red;
+  font-weight: bold;
+}
