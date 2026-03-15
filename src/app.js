@@ -1,6 +1,7 @@
 import express from 'express';
 import session from "express-session";
 import defaultRouter from './routers/default.routes.js';
+import cartRouter from './routers/cart.routes.js';
 
 //configure Express.js app
 const app = express();
@@ -35,5 +36,6 @@ app.use(express.urlencoded({ extended: true }));
 
 //routers
 app.use("/", defaultRouter);
+app.use("/api/cart", cartRouter);
 
 export default app;

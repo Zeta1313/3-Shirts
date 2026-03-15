@@ -62,6 +62,13 @@ export const isLoggedIn = (req, res, next) => {
     next();
 }
 
+export const requireAuth = (req, res, next) => {
+    if (!req.user) {
+        return res.status(401).json({message: "401 Unauthorized"});
+    }
+    next();
+}
+
 
 export const logout = (req, res) => {
     req.session.destroy(() => {
