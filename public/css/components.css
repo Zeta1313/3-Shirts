@@ -23,6 +23,7 @@ nav a {
   text-decoration: none;
   color: #ccc;
   font-size: 14px;
+  border-radius: 0.5rem;
 }
 
 .nav-cta {
@@ -42,6 +43,7 @@ nav a {
   text-decoration: none;
   margin-right: 12px;
   font-size: 14px;
+  border-radius: 0.3rem;
 }
 
 .btn-muted {
@@ -50,6 +52,7 @@ nav a {
   text-decoration: none;
   color: #ddd;
   font-size: 14px;
+  border-radius: 0.3rem;
 }
 
 .brand a {
@@ -80,9 +83,7 @@ nav a {
   font-weight: bold;
 }
 
-
 /* Button */
-
 .add-to-cart-btn  {
   display: inline-block;
   padding: 8px 14px;
@@ -106,5 +107,4 @@ nav a {
 }
 .add-to-cart-btn.center-wide p{
   text-align: center;
-  
 }
