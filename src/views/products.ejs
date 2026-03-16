@@ -8,6 +8,7 @@
   </title>
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/filters.js" defer></script>
+  <script src="/js/cart.js" defer></script>
 </head>
 
 <body>
@@ -72,6 +73,12 @@
         </div>
       </div>
 
+      <!-- SHOPPING CART UI HERE -->
+      <div id="cart">
+        <h3>Cart</h3>
+        <ul id="cart-items"></ul>
+      </div>
+
 
       <section class="products-grid">
 
@@ -132,7 +139,7 @@
                   <a class="view-btn" href="/products/<%= products[i].ID %>">
                     View product
                   </a>
-                  <a class="add-to-cart-btn" product-id="<%= products[i].ID %>">Add to cart</a>
+                  <a class="add-to-cart-btn" data-id="<%= products[i].ID %>">Add to cart</a>
                 </div>
 
               </div>
