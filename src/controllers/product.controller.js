@@ -40,7 +40,7 @@ export const renderProductById = async (req, res) => {
             if (req.session.memory[i] == req.params.id) check = 1;
         }
         if (check == 0) {
-            req.session.memory[req.session.memory.length+1] = req.params.id;
+            req.session.memory.push(req.params.id);
         }
     }
     const id = Number(req.params.id);
