@@ -1,64 +1,112 @@
+import * as productService from '../services/product.service.js';
+
 export const allItemsInCart = async (req, res) => {
     try {
         const cart = req.session.cart || [];
         const display = [];
+
         for (let i = 0; i < cart.length; i++) {
             display.push(await productService.getById(cart[i]));
         }
-        res.render("cart", {
-            title: "cart",
-            display
+
+        return res.status(200).json({
+            success: true,
+            cart: display
         });
+
     } catch (err) {
         console.error("Error loading cart", err);
-        res.render("products", {
-            title: "cart",
-            display: []
+
+        return res.status(500).json({
+            success: false,
+            message: "Error loading cart"
         });
     }
 };
 
 export const addItemToCart = async (req, res) => {
-    const item = req.params.id;
-    if (!req.session.cart) {
-        const cart = [];
-        cart[0] = item;
-        req.session.cart = cart;
+    try {
+        const { productId } = req.body;
+
+        if (!productId) {
+            return res.status(400).json({
+                success: false,
+                message: "productId required"
+            });
+        }
+
+        if (!req.session.cart) {
+            req.session.cart = [];
+        }
+
+        req.session.cart.push(Number(productId));
+
+        return res.status(200).json({
+            success: true,
+            message: "Item added to cart",
+            cart: req.session.cart
+        });
+
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({
+            success: false,
+            message: "Error adding item"
+        });
     }
-    else {
-        req.session.cart.push(item);
-    }
-    return res.status(200).send("Item added");
 };
 
 export const clearCart = async (req, res) => {
     try {
         req.session.cart = [];
-        return res.status(200).send("cart cleared");
+
+        return res.status(200).json({
+            success: true,
+            message: "Cart cleared"
+        });
+
     } catch (err) {
         console.error("Error clearing cart", err);
-        return res.status(500).send("Error clearing cart");
+
+        return res.status(500).json({
+            success: false,
+            message: "Error clearing cart"
+        });
     }
 };
 
 export const deleteItemFromCart = async (req, res) => {
-    const id = Number(req.params.id);
-    if (!req.session.cart) return res.status(400).send("Cart not found");
-    if (!Number.isInteger(id)) return res.status(400).send("Invalid product ID");
-    let check = 0;
-    for (let i = 0; i < req.session.cart.length; i++) {
-        if (req.session.cart[i] == id) check = 1;
-    }
-    if (check !== 1) return res.status(400).send("ID not present in cart");
     try {
-        for (let i = 0; i < req.session.cart.length; i++) {
-            if (req.session.cart[i] == id) {
-                req.session.cart.splice(i, 1);
-                return res.status(200).send("Item Removed");
-            }
+        const id = Number(req.params.productId);
+
+        if (!req.session.cart) {
+            return res.status(400).json({
+                success: false,
+                message: "Cart not found"
+            });
         }
-        return res.status(404).send("Error removing product");
+
+        const index = req.session.cart.indexOf(id);
+
+        if (index === -1) {
+            return res.status(404).json({
+                success: false,
+                message: "Product not in cart"
+            });
+        }
+
+        req.session.cart.splice(index, 1);
+
+        return res.status(200).json({
+            success: true,
+            message: "Item removed",
+            cart: req.session.cart
+        });
+
     } catch (err) {
-        return res.status(404).send("Error removing product", err);
+        return res.status(500).json({
+            success: false,
+            message: "Error removing item"
+        });
     }
 };
