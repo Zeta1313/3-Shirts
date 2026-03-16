@@ -1,6 +1,15 @@
 export const allItemsInCart = async (req, res) => {
     try {
-        return res.status(200).json({});
+        const cart = req.session.cart;
+        const display = [];
+        for (let i = 0; i < cart.length; i++) {
+            if (!display.length == 0) display[req.session.cart.length+1] = await productService.getById(cart[i]);
+            else display[0] = await productService.getById(cart[i]);
+        }
+        res.render("cart", {
+            title: "cart",
+            display
+        });
     } catch (err) {
         return res.status(401).json({});
     }
