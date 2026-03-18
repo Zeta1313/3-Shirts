@@ -19,7 +19,7 @@ const updateProducts = async () => {
     
     if (products.length === 0) {
         grid.innerHTML = '<div class="empty-state"><h4>No products found matching those filters.</h4></div>';
-        productsCount.innerHTML = '';
+        productsCount.innerHTML = 'No products to show';
         return;
     }
 

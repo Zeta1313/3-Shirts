@@ -170,7 +170,7 @@
   cursor: pointer;
   font-weight: 600;
   transition: opacity 0.2s;
-  margin-left: 1rem;
+  margin: auto 0;
 }
 
 #clearFilters:hover {
