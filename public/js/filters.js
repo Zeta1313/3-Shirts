@@ -31,6 +31,7 @@ const updateProducts = async () => {
                 </div>
                 <h3 class="product-title">${product.Name}</h3>
                 <p class="product-price">$${Number(product.Price).toFixed(2)}</p>
+                <p class="product-desc">${product.Description}</p>
                 <div class="product-meta">
                     <span class="pill">${product.Brand}</span>
                     <span class="pill">${product.Size}</span>
