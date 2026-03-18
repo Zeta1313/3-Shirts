@@ -6,7 +6,14 @@ export const allItemsInCart = async (req, res) => {
         const display = [];
 
         for (let i = 0; i < cart.length; i++) {
-            display.push(await productService.getById(cart[i]));
+            const product = await productService.getById(cart[i].productId);
+
+            if (product) {
+                display.push({
+                    ...product,
+                    Quantity: cart[i].quantity
+                });
+            }
         }
 
         return res.status(200).json({
@@ -39,12 +46,22 @@ export const addItemToCart = async (req, res) => {
             req.session.cart = [];
         }
 
-        req.session.cart.push(Number(productId));
+        const cart = req.session.cart;
+        const existingItem = cart.find(item => item.productId === Number(productId));
+
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({
+                productId: Number(productId),
+                quantity: 1
+            });
+        }
 
         return res.status(200).json({
             success: true,
             message: "Item added to cart",
-            cart: req.session.cart
+            cart
         });
 
     } catch (err) {
@@ -86,20 +103,25 @@ export const deleteItemFromCart = async (req, res) => {
             });
         }
 
-        const index = req.session.cart.indexOf(id);
+        const cart = req.session.cart;
+        const item = cart.find(i => i.productId === id);
 
-        if (index === -1) {
+        if (!item) {
             return res.status(404).json({
                 success: false,
                 message: "Product not in cart"
             });
         }
 
-        req.session.cart.splice(index, 1);
+        if (item.quantity > 1) {
+            item.quantity -= 1;
+        } else {
+            req.session.cart = cart.filter(i => i.productId !== id);
+        }
 
         return res.status(200).json({
             success: true,
-            message: "Item removed",
+            message: "Item updated",
             cart: req.session.cart
         });
 

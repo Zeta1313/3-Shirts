@@ -24,7 +24,7 @@ async function loadCart() {
     const li = document.createElement("li");
     li.className = "cart-item";
 
-    total += Number(item.Price);
+    total += Number(item.Price) * Number(item.Quantity);
 
     li.innerHTML = `
       <button class="remove-item-btn" data-id="${item.ID}" type="button">&times;</button>
@@ -35,7 +35,7 @@ async function loadCart() {
 
       <div class="cart-item-details">
         <h4>${item.Name}</h4>
-        <p>Qty: 1</p>
+        <p>Qty: ${item.Quantity}</p>
       </div>
 
       <div class="cart-item-price">
