@@ -90,10 +90,6 @@ nav a {
   background: #2c2c2c;
   border: 1px solid #444;
   border-radius: 6px;
-  text-decoration: none;
-  color: #eee;
-  font-size: 13px;
-  cursor: pointer;
 }
 
 .view-btn:hover, .clear-cart-btn:hover {
@@ -109,7 +105,7 @@ nav a {
   border-radius: 8px;
   border: 1px solid #444;
   background: #2f2f31;
-  color: white;
+  color: #eee;
   text-decoration: none;
   text-align: center;
   font-size: 13px;

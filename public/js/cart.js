@@ -3,7 +3,7 @@ async function loadCart() {
   const data = await res.json();
 
   // SHOPPING CART UI HERE - UPDATE
-   const cart = document.getElementById("cart-items");
+  const cart = document.getElementById("cart-items");
   cart.innerHTML = "";
 
   data.cart.forEach(item => {
