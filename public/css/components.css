@@ -84,7 +84,7 @@ nav a {
 }
 
 /* Button */
-.add-to-cart-btn  {
+.view-btn, .clear-cart-btn {
   display: inline-block;
   padding: 8px 14px;
   background: #2c2c2c;
@@ -93,10 +93,37 @@ nav a {
   text-decoration: none;
   color: #eee;
   font-size: 13px;
+  cursor: pointer;
 }
 
-.add-to-cart-btn  {
+.view-btn:hover, .clear-cart-btn:hover {
   background: #333;
+}
+
+.view-btn,
+.add-to-cart-btn,
+.checkout-btn,
+.clear-cart-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #2f2f31;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.add-to-cart-btn,
+.checkout-btn {
+  background: #2d6a4f;
+  border: 1px solid #2d6a4f;
+}
+
+.add-to-cart-btn:hover {
+  background: #24563f;
 }
 
 .add-to-cart-btn.center-wide {
