@@ -3,12 +3,30 @@ async function loadCart() {
   const data = await res.json();
 
   // SHOPPING CART UI HERE - UPDATE
-  const cart = document.getElementById("cart-items");
+   const cart = document.getElementById("cart-items");
   cart.innerHTML = "";
 
   data.cart.forEach(item => {
     const li = document.createElement("li");
-    li.textContent = `${item.Name} - $${item.Price}`;
+    li.className = "cart-item";
+
+    li.innerHTML = `
+      <button class="remove-item-btn" data-id="${item.ID}" type="button">&times;</button>
+
+      <div class="cart-item-image">
+        <img src="/${item.Image}" alt="${item.Name}">
+      </div>
+
+      <div class="cart-item-details">
+        <h4>${item.Name}</h4>
+        <p>Qty: 1</p>
+      </div>
+
+      <div class="cart-item-price">
+        $${Number(item.Price).toFixed(2)}
+      </div>
+    `;
+
     cart.appendChild(li);
   });
 }
