@@ -1,10 +1,10 @@
 
-/* Page spacing */
+
 .products-page {
   padding-top: 50px;
 }
 
-/* Header */
+
 .products-header {
   margin-bottom: 30px;
   border-bottom: 1px solid #222;
@@ -82,13 +82,14 @@
   text-decoration: none;
   color: #eee;
   font-size: 13px;
+  cursor: pointer;
 }
 
 .product-actions a:hover {
   background: #333;
 }
 
-/* Empty message */
+
 .empty-state {
   grid-column: 1 / -1;
   text-align: center;
@@ -102,7 +103,7 @@
   margin-bottom: 8px;
 }
 
-/* Responsive */
+
 @media (max-width: 900px) {
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -126,7 +127,7 @@
 
 
 .product-card {
-  padding: 14px;  /* was 20px */
+  padding: 14px; 
 }
 
 
@@ -140,7 +141,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 15px;
-  background: rgba(255, 255, 255, 0.05); /* Subtle transparent background */
+  background: rgba(255, 255, 255, 0.05); 
   border: 1px solid #2a2a2a;
   padding: 15px 25px;
   border-radius: 16px;
@@ -180,7 +181,7 @@
   border-color: #4caf50;
 }
 
-/* Clear Button */
+
 #clearFilters {
   background: #f5f5f5;
   color: #121212;
@@ -189,7 +190,7 @@
   border-radius: 20px;
   cursor: pointer;
   font-weight: 600;
-  margin-top: 18px; /* Align with inputs */
+  margin-top: 18px; 
   transition: opacity 0.2s;
   margin-left: 1rem;
   align-self: flex-end;
@@ -199,7 +200,7 @@
   opacity: 0.9;
 }
 
-/* Results Count */
+
 .results-meta {
   margin-right: auto;
   align-self: flex-start;
@@ -215,5 +216,37 @@
 }
 
 .add-to-cart-btn {
-  margin-left: 1rem;
+  
+  cursor: pointer;
+  
+}
+
+.product-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.view-btn,
+.add-to-cart-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #2f2f31;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.add-to-cart-btn {
+  background: #2d6a4f;
+  border: 1px solid #2d6a4f;
+}
+
+.add-to-cart-btn:hover {
+  background: #24563f;
 }
