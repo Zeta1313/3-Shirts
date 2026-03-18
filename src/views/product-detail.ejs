@@ -4,55 +4,59 @@
   <meta charset="UTF-8">
   <title><%= title %></title>
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/cart.css">
   <script src="/js/cart.js" defer></script>
 </head>
 <body>
 
 <%- include('partials/header') %>
 
-<main class="container product-detail-page">
+<main class="container products-layout">
 
-  <a class="back-btn" href="/products">← Back to products</a>
+  <%- include('partials/cart-sidebar') %>
 
-  <div class="product-detail-card">
+  <section class="products-content product-detail-page">
 
-    <!-- Product Image -->
-    <div class="product-detail-image">
-      <% if (product.Image) { %>
-        <img src="/<%= product.Image %>" alt="<%= product.Name %>">
-      <% } else { %>
-        <img src="/images/PlainShirt.png">
-      <% } %>
-    </div>
+    <a class="back-btn" href="/products">← Back to products</a>
 
-    <!-- Product Info -->
-    <div class="product-detail-info">
+    <div class="product-detail-card">
 
-      <h1 class="product-title">
-        <%= product.Name %>
-      </h1>
-
-      <p class="product-price">
-        $<%= Number(product.Price).toFixed(2) %>
-      </p>
-
-      <p class="product-desc">
-        <%= product.Description %>
-      </p>
-
-      <div class="product-meta">
-        <span class="pill"><%= product.Brand %></span>
-        <span class="pill"><%= product.Pattern %></span>
-        <span class="pill"><%= product.Size %></span>
-        <span class="pill"><%= product.Color %></span>
-        <span class="pill"><%= Stock %></span>
+      <div class="product-detail-image">
+        <% if (product.Image) { %>
+          <img src="/<%= product.Image %>" alt="<%= product.Name %>">
+        <% } else { %>
+          <img src="/images/PlainShirt.png" alt="Plain Shirt">
+        <% } %>
       </div>
 
-      <a class="add-to-cart-btn center-wide" data-id="<%= products[i].ID %>">Add to cart</a>
+      <div class="product-detail-info">
+        <h1 class="product-title"><%= product.Name %></h1>
+
+        <p class="product-price">
+          $<%= Number(product.Price).toFixed(2) %>
+        </p>
+
+        <p class="product-desc"><%= product.Description %></p>
+
+        <div class="product-meta">
+          <span class="pill"><%= product.Brand %></span>
+          <span class="pill"><%= product.Pattern %></span>
+          <span class="pill"><%= product.Size %></span>
+          <span class="pill"><%= product.Color %></span>
+          <span class="pill"><%= Stock %></span>
+        </div>
+
+        <button
+          class="add-to-cart-btn center-wide"
+          data-id="<%= product.ID %>"
+          type="button">
+          Add to cart
+        </button>
+      </div>
 
     </div>
 
-  </div>
+  </section>
 
 </main>
 
