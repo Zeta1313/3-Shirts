@@ -2,13 +2,29 @@ async function loadCart() {
   const res = await fetch("/api/cart");
   const data = await res.json();
 
-  // SHOPPING CART UI HERE - UPDATE
   const cart = document.getElementById("cart-items");
+  const emptyCart = document.getElementById("empty-cart");
+  const cartCount = document.getElementById("cart-count");
+  const cartTotal = document.getElementById("cart-total");
+
   cart.innerHTML = "";
+
+  let total = 0;
+
+  if (!data.cart || data.cart.length === 0) {
+    emptyCart.style.display = "block";
+    cartCount.textContent = "0";
+    cartTotal.textContent = "$0.00";
+    return;
+  }
+
+  emptyCart.style.display = "none";
 
   data.cart.forEach(item => {
     const li = document.createElement("li");
     li.className = "cart-item";
+
+    total += Number(item.Price);
 
     li.innerHTML = `
       <button class="remove-item-btn" data-id="${item.ID}" type="button">&times;</button>
@@ -29,6 +45,17 @@ async function loadCart() {
 
     cart.appendChild(li);
   });
+
+  // update UI
+  cartCount.textContent = data.cart.length;
+  cartTotal.textContent = `$${total.toFixed(2)}`;
+
+  // attach remove listeners
+  document.querySelectorAll(".remove-item-btn").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      await removeFromCart(btn.dataset.id);
+    });
+  });
 }
 
 async function addToCart(productId) {
@@ -43,8 +70,24 @@ async function addToCart(productId) {
   if (res.ok) loadCart();
 }
 
+async function removeFromCart(productId) {
+  const res = await fetch(`/api/cart/items/${productId}`, {
+    method: "DELETE"
+  });
+
+  if (res.ok) loadCart();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   loadCart();
+
+  document.getElementById("clear-cart-btn").addEventListener("click", async () => {
+    const res = await fetch("/api/cart/clear", {
+      method: "POST"
+    });
+
+    if (res.ok) loadCart();
+  });
 
   document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
     btn.addEventListener("click", () => {
