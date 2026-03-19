@@ -18,6 +18,8 @@ router.get("/products", isLoggedIn, productController.renderAllProducts);
 router.get("/products/:id", isLoggedIn, productController.renderProductById);
 router.get("/api/products", requireAuth, productController.restApi);
 
+router.get("/recent", isLoggedIn, productController.RecentPage);
+
 router.get("/logout", logout);
 
 export default router;

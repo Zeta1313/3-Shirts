@@ -41,8 +41,8 @@ This store focuses exclusively on shirts to create a clean, focused, and brand-d
 | Route | Description |
 |------|-------------|
 | `/` | Home page displaying a randomized "shirt of the day" for each user session |
-| `/login` | Login page (currently vestigial) |
-| `/register` | Registration page (currently vestigial) |
+| `/login` | Login page |
+| `/register` | Registration page |
 | `/products` | Displays all products with filtering options |
 | `/products/:id` | Displays an individual product page with product details and stock information |
 
@@ -57,6 +57,10 @@ Displays the product with ID `5`.
 | Endpoint | Description |
 |---------|-------------|
 | `/api/products` | Returns all products in JSON format |
+| `/api/`         | Returns all products in the Cart in JSON format |
+| `/api/items`    | Adds an item to the cart within the session |
+| `/api/items/:productid` | Deletes an item with the specified Id from the cart within the session |
+| `/api/clear`    | Clears the session cart |
 
 Example: `GET /api/products`
 
@@ -105,3 +109,11 @@ ORDER BY Price ASC;
 ```
 
 Filters are only applied when parameters are present, allowing flexible product searching.
+
+## Session-based Cart
+
+A sidebar is present on each page that tracks the users cart. This cart is stored in the session and can be added to, deleted from, and cleared. Checkout is currently vestigial due to the lack of actual product to sell.
+
+## Recent page
+
+A page that displays each product page the user has viewed, where the information is stored in the session. Duplicate of the products page with a narrowed field to only ID's that are stored in the session.

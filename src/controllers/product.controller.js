@@ -1,3 +1,4 @@
+import session from 'express-session';
 import * as productService from '../services/product.service.js';
 
 export const renderAllProducts = async (req, res) => {
@@ -29,21 +30,13 @@ export const renderAllProducts = async (req, res) => {
 };
 
 export const renderProductById = async (req, res) => {
-    if (!req.session.memory) {
-        const memory = [];
-        memory[0] = req.params.id;
-        req.session.memory = memory;
-    }
-    else {
-        let check = 0;
-        for (let i = 0; i < req.session.memory.length; i++) {
-            if (req.session.memory[i] == req.params.id) check = 1;
-        }
-        if (check == 0) {
-            req.session.memory.push(req.params.id);
-        }
-    }
     const id = Number(req.params.id);
+
+    if (!req.session.memory) {
+        req.session.memory = [id];
+    } else if (!req.session.memory.includes(id)) {
+        req.session.memory.push(id);
+    }
     if (!Number.isInteger(id)) return res.status(400).send("Invalid product ID");
 
     try {
@@ -85,6 +78,36 @@ export const HomePage = async (req, res) => {
     res.render("home", {
         product: product,
         Stock: inStock,
+        id: req.session.featuredProductId,
         title: "Home | Landing Page"
     });
 };
+
+export const RecentPage = async (req, res) => {
+    try {
+    let products = [];
+    const memory = req.session.memory || [];
+    for (let i = 0; i < memory.length ; i++) {
+        products.push(await productService.getById(memory[i]));
+    }
+    const sizes = [...new Set(products.map(p => p.Size))].sort();
+    const colors = [...new Set(products.map(p => p.Color))].sort();
+    const brands = [...new Set(products.map(p => p.Brand))].sort();
+        res.render("recent", {
+            title: "Recent pages",
+            products,
+            sizes,   
+            colors,
+            brands
+        });
+    } catch (err) {
+        console.error("Error loading products:", err);
+        res.render("recent", {
+            title: "Recent pages",
+            products: [],
+            sizes: [],
+            colors: [],
+            brands: []
+        });
+    }  
+}
