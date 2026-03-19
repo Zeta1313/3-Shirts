@@ -4,35 +4,74 @@
 
 - **Adrien Bertrand** — GitHub: `Zeta1313`
 - **Allen Resulidze** — GitHub: `allennres`
-- **Kabul Totakhil** — GitHub: ` Totakhil21`
+- **Kabul Totakhil** — GitHub: `Totakhil21`
 
 ---
 
 ## 🛍️ Project Description
 
-**3-Shirts** is a full-stack ecommerce web application focused on selling high-quality, stylish shirts for everyday wear. Our platform allows customers to browse products, view detailed descriptions, add items to their cart, and securely complete purchases. In addition, we select a featured product for every new session to display to users visiting the home page.
+**3-Shirts** is a full-stack ecommerce web application focused on selling high-quality, stylish shirts. Users can browse products, view details, manage a cart, and interact with a session-based shopping experience.
 
-The goal of this project is to demonstrate modern web development practices including structured architecture, clean UI design, and secure backend integration. In addition, it will be using:
+This project demonstrates:
 
 - Server-Side Rendering (SSR)
-- Express.js
-- MVC architecture
+- Express.js backend architecture
+- MVC design pattern
 - REST-style API endpoints
-- Secure session-based state management
-- Session management
+- Session-based authentication
+- Session-based cart management
 
 ---
 
 ## 👕 Product Category
-
-The store will specialize in:
 
 - Casual T-Shirts  
 - Graphic Tees  
 - Premium Cotton Shirts  
 - Seasonal & Limited Edition Designs  
 
-This store focuses exclusively on shirts to create a clean, focused, and brand-driven shopping experience.
+---
+
+## Authentication Flow
+
+The application uses session-based authentication.
+
+### Register
+- User submits the form at `/register`
+- Server validates input and creates a user
+- A session is created automatically after registration
+
+### Login
+- User submits credentials at `/login`
+- Server verifies credentials
+- On success:
+  - `req.session.userId` is stored
+- User is redirected to `/`
+
+### Logout
+- Session is destroyed using:
+  req.session.destroy()
+- User is redirected to `/login`
+
+---
+
+## Route Access
+
+### Public Routes
+- `/`
+- `/login`
+- `/register`
+
+### Protected Routes
+- `/products`
+- `/products/:id`
+- `/recent`
+
+### Protected API Routes
+- `/api/cart`
+- `/api/cart/items`
+- `/api/cart/items/:productId`
+- `/api/cart/clear`
 
 ---
 
@@ -40,121 +79,154 @@ This store focuses exclusively on shirts to create a clean, focused, and brand-d
 
 | Route | Description |
 |------|-------------|
-| `/` | Home page displaying a randomized "shirt of the day" for each user session |
+| `/` | Home page with session-based featured product |
 | `/login` | Login page |
 | `/register` | Registration page |
-| `/products` | Displays all products with filtering options |
-| `/products/:id` | Displays an individual product page with product details and stock information |
-| `/recent`   | Displays all recent product pages that were visited, stored in the session |
-
-Example: `/products/5`
-
-Displays the product with ID `5`.
+| `/products` | Product listing page |
+| `/products/:id` | Individual product page |
+| `/recent` | Recently viewed products (session-based) |
 
 ---
 
-## API Endpoint
+## API Endpoints
+
+### Product API
 
 | Endpoint | Description |
 |---------|-------------|
-| `/api/products` | Returns all products in JSON format |
-| `/api/`         | Returns all products in the Cart in JSON format |
-| `/api/items`    | Adds an item to the cart within the session |
-| `/api/items/:productid` | Deletes an item with the specified Id from the cart within the session |
-| `/api/clear`    | Clears the session cart |
-
-Example: `GET /api/products`
-
-This endpoint can also accept query parameters for filtering.
+| `/api/products` | Returns all products (supports filtering) |
 
 ---
 
-## Authentication
+### Cart API
 
-The following routes are unprotected, and can be acessed without logging in
-|-------------|
-| `/Login` |
-| `/register` |
-| `/` |
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/cart` | Get cart contents |
+| POST | `/api/cart/items` | Add item to cart |
+| DELETE | `/api/cart/items/:productId` | Remove item |
+| POST | `/api/cart/clear` | Clear cart |
 
-The Following routes are protected, and will prompt the user to login before entering
-|-------------------------|
-| `/prodcuts` |
-| `/products/:id` |
-| `/recent` |
-| `/api/products` |
-| `/api/`         |
-| `/api/items`    |
-| `/api/items/:productid` |
-| `/api/clear`    |
+---
 
 ## Supported Query Parameters
 
-The `/products` page and `/api/products` endpoint support filtering using URL query parameters.
+Used in `/products` and `/api/products`:
 
 | Parameter | Description |
 |----------|-------------|
-| `size` | Filter products by size |
-| `color` | Filter products by color |
-| `brand` | Filter products by brand |
-| `sort` | Sort products by price |
+| `size` | Filter by size |
+| `color` | Filter by color |
+| `brand` | Filter by brand |
+| `sort` | Sort by price |
 
-Examples:
-`/products?size=M`
-`/products?color=Black`
-`/products?brand=Nike`
-`/products?sort=price_asc`
+### Examples
 
+- `/products?size=M`
+- `/products?color=Black`
+- `/products?brand=Nike`
+- `/products?sort=price_asc`
 
-Sorting options:
+### Sorting Options
 
-- `price_asc` — lowest to highest
-- `price_desc` — highest to lowest
+- `price_asc` — lowest to highest  
+- `price_desc` — highest to lowest  
 
 ---
 
 ## Filtering Logic
 
-Filtering is handled in the **product service layer**. The server builds a SQL query dynamically depending on which query parameters are provided.
+Filtering is handled in the service layer using dynamic SQL queries.
 
-For example: `/products?size=M&color=Black&sort=price_asc`
+Example:
 
-Produces a query similar to:
+`/products?size=M&color=Black&sort=price_asc`
 
-```sql
-SELECT * FROM products
-WHERE Size = 'M'
-AND Color = 'Black'
-ORDER BY Price ASC;
-```
+Produces:
 
-Filters are only applied when parameters are present, allowing flexible product searching.
+SELECT * FROM products  
+WHERE size = 'M'  
+AND color = 'Black'  
+ORDER BY price ASC;
 
-## Session-based Cart
+---
 
-A sidebar is present on each page that tracks the users cart. This cart is stored in the session on the server-side and can be added to, deleted from, and cleared. Checkout is currently vestigial due to the lack of actual product to sell.
+## Session-Based Cart Model
 
-Internal call:
- `req.session.cart` 
+The cart is stored on the server using:
 
-## Recent page
+req.session.cart
 
-A page that displays each product page the user has viewed, where the information is stored in the session on the server-side. Duplicate of the products page with a narrowed field to only ID's that are stored in the session.
+### Example Structure
 
-Internal call:
- `req.session.memory` 
+[
+  { productId: 1, quantity: 2 },
+  { productId: 5, quantity: 1 }
+]
 
-## Setup instructions
-1. Create Database using SQL. Run the commands in schema.sql and scheme.sql.
-2. Create an ENV file, setting the port, integrating the databse you created in step #1. Use this formatting, filling in the blank sections.
+### Behavior
 
-```
-PORT=8080
-DB_HOST=localhost
-DB_PORT=
-DB_USER=
-DB_PASSWORD=
-DB_NAME=
+- Cart is initialized when session starts
+- Adding items:
+  - If item exists → increase quantity
+  - Else → add new item
+- Removing items:
+  - Deletes from session
+- Clearing cart:
+  - req.session.cart = []
 
-SESSION_SECRET=
-```
+Each user has an isolated cart tied to their session.
+
+---
+
+## 🧠 Recent Page
+
+Tracks recently viewed products using:
+
+req.session.memory
+
+- Stores product IDs viewed by the user
+- Displays a filtered product list
+- Avoids duplicates
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Install dependencies
+
+npm install
+
+---
+
+### 2. Set up the database
+
+Run:
+
+- schema.sql  
+- seed.sql  
+
+---
+
+### 3. Create `.env` file
+
+PORT=8080  
+DB_HOST=localhost  
+DB_PORT=3306  
+DB_USER=your_user  
+DB_PASSWORD=your_password  
+DB_NAME=your_database  
+
+SESSION_SECRET=your_secret  
+
+---
+
+### 4. Run the application
+
+npm run dev
+
+---
+
+### 5. Open in browser
+
+http://localhost:8080
