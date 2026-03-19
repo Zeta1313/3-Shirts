@@ -52,7 +52,7 @@ const login = async (req, res) => {
         username: user.username,
     };
 
-    return res.redirect("/products");
+    return res.redirect("/");
 };
 
 export const isLoggedIn = (req, res, next) => {
