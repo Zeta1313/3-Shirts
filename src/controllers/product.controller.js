@@ -90,24 +90,15 @@ export const RecentPage = async (req, res) => {
     for (let i = 0; i < memory.length ; i++) {
         products.push(await productService.getById(memory[i]));
     }
-    const sizes = [...new Set(products.map(p => p.Size))].sort();
-    const colors = [...new Set(products.map(p => p.Color))].sort();
-    const brands = [...new Set(products.map(p => p.Brand))].sort();
         res.render("recent", {
             title: "Recent pages",
-            products,
-            sizes,   
-            colors,
-            brands
+            products
         });
     } catch (err) {
         console.error("Error loading products:", err);
         res.render("recent", {
             title: "Recent pages",
-            products: [],
-            sizes: [],
-            colors: [],
-            brands: []
+            products: []
         });
     }  
 }
