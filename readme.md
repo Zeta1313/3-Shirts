@@ -45,6 +45,7 @@ This store focuses exclusively on shirts to create a clean, focused, and brand-d
 | `/register` | Registration page |
 | `/products` | Displays all products with filtering options |
 | `/products/:id` | Displays an individual product page with product details and stock information |
+| `/recent`   | Displays all recent product pages that were visited, stored in the session |
 
 Example: `/products/5`
 
@@ -67,6 +68,25 @@ Example: `GET /api/products`
 This endpoint can also accept query parameters for filtering.
 
 ---
+
+## Authentication
+
+The following routes are unprotected, and can be acessed without logging in
+|-------------|
+| `/Login` |
+| `/register` |
+| `/` |
+
+The Following routes are protected, and will prompt the user to login before entering
+|-------------------------|
+| `/prodcuts` |
+| `/products/:id` |
+| `/recent` |
+| `/api/products` |
+| `/api/`         |
+| `/api/items`    |
+| `/api/items/:productid` |
+| `/api/clear`    |
 
 ## Supported Query Parameters
 
@@ -113,7 +133,11 @@ Filters are only applied when parameters are present, allowing flexible product 
 ## Session-based Cart
 
 A sidebar is present on each page that tracks the users cart. This cart is stored in the session and can be added to, deleted from, and cleared. Checkout is currently vestigial due to the lack of actual product to sell.
+Internal call:
+| req.session.cart |
 
 ## Recent page
 
 A page that displays each product page the user has viewed, where the information is stored in the session. Duplicate of the products page with a narrowed field to only ID's that are stored in the session.
+Internal call:
+| req.session.memory |
