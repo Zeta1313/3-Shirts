@@ -133,11 +133,13 @@ Filters are only applied when parameters are present, allowing flexible product 
 ## Session-based Cart
 
 A sidebar is present on each page that tracks the users cart. This cart is stored in the session and can be added to, deleted from, and cleared. Checkout is currently vestigial due to the lack of actual product to sell.
+
 Internal call:
-| req.session.cart |
+| `req.session.cart` |
 
 ## Recent page
 
 A page that displays each product page the user has viewed, where the information is stored in the session. Duplicate of the products page with a narrowed field to only ID's that are stored in the session.
+
 Internal call:
-| req.session.memory |
+| `req.session.memory` |
