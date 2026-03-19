@@ -39,13 +39,18 @@ const updateProducts = async () => {
                 </div>
                 <div class="product-actions">
                     <a class="view-btn" href="/products/${product.ID}">View product</a>
-                    <a class="add-to-cart-btn" href="/api/cart/items">Add to cart</a>
+                    <a class="add-to-cart-btn" data-id="${product.ID}">Add to cart</a>
                 </div>
             </div>`;
         grid.insertAdjacentHTML('beforeend', card);
     });
     
     document.getElementById('productCount').innerHTML = `Showing <strong>${products.length}</strong> products`;
+    document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            addToCart(btn.dataset.id);
+        });
+    });
 };
 
 // Attach listeners
