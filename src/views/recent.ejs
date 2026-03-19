@@ -24,66 +24,6 @@
         <section class="products-content">
           <h2>Recent Pages</h2>
 
-          <div class="filter-bar">
-            <div class="filter-group">
-              <label for="sizeSelect">Size</label>
-              <select id="sizeSelect">
-                <option value="All">All Sizes</option>
-                <% sizes.forEach(size=> { %>
-                  <option value="<%= size %>">
-                    <%= size %>
-                  </option>
-                  <% }) %>
-              </select>
-            </div>
-
-            <div class="filter-group">
-              <label for="colorSelect">Color</label>
-              <select id="colorSelect">
-                <option value="All">All Colors</option>
-                <% colors.forEach(color=> { %>
-                  <option value="<%= color %>">
-                    <%= color %>
-                  </option>
-                  <% }) %>
-              </select>
-            </div>
-
-            <div class="filter-group">
-              <label for="brandSelect">Brand</label>
-              <select id="brandSelect">
-                <option value="All">All Brands</option>
-                <% brands.forEach(brand=> { %>
-                  <option value="<%= brand %>">
-                    <%= brand %>
-                  </option>
-                  <% }) %>
-              </select>
-            </div>
-
-            <div class="filter-group">
-              <label for="sortSelect">Sort</label>
-              <select id="sortSelect">
-                <option value="price_asc">Price: Low to High</option>
-                <option value="price_desc">Price: High to Low</option>
-              </select>
-            </div>
-
-            <div class="filter-group">
-              <button id="clearFilters" type="button">Clear</button>
-
-              <div class="results-meta">
-                <span id="productCount">
-                  Showing <strong>
-                    <%= products.length %>
-                  </strong> products
-                </span>
-              </div>
-            </div>
-
-
-          </div>
-
           <section class="products-grid">
             <% if (!products || products.length===0) { %>
 
