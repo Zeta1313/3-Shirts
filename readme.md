@@ -145,4 +145,14 @@ Internal call:
  `req.session.memory` 
 
 ## Setup instructions
-tbd
+1. Create Database using SQL. Run the commands in schema.sql and scheme.sql.
+2. Create an ENV file, setting the port, integrating the databse you created in step #1. Use this formatting, filling in the blank sections.
+
+`PORT=8080
+DB_HOST=localhost
+DB_PORT=
+DB_USER=
+DB_PASSWORD=
+DB_NAME=
+
+SESSION_SECRET=`
